@@ -1,4 +1,3 @@
-
 const api = {
   key: "d9ce6471d8fd9d6527e5201cd8b8077e",
   base: "https://api.openweathermap.org/data/2.5/"
@@ -38,13 +37,16 @@ function displayResults (weather) {
   weather_el.innerText = weather.weather[0].main;
 
   let hilow = document.querySelector('.current .hi-low');
-  hilow.innerText = `${Math.round(weather.main.temp_min)}°c/ ${Math.round(weather.main.temp_max)}°c`;
+  hilow.innerHTML = `${Math.round(weather.main.temp_min)}<span>°c</span> / ${Math.round(weather.main.temp_max)}<span>°c</span>`;
 
   let lonlat = document.querySelector('.coordinate');
-  lonlat.innerText = `longitude: ${weather.coord.lon}, lattitude: ${weather.coord.lat}`;
+  lonlat.innerText = `Longitude: ${weather.coord.lon}, Latitude: ${weather.coord.lat}`;
 
   let spedeg = document.querySelector('.wind');
-  spedeg.innerText = `Wind (Speed: ${weather.wind.speed}, Deg: ${weather.wind.deg} )`;
+  spedeg.innerText = `Wind-Speed: ${weather.wind.speed} mps | Deg: ${weather.wind.deg} `;
+
+   let humid = document.querySelector('.extra .humidity');
+  humid.innerText = `Humidity: ${weather.main.humidity}%`;
 }
 
 function dateBuilder (d) {
@@ -78,4 +80,3 @@ setInterval(time, 1000);
   getResults("Delhi");
 
 });
-
