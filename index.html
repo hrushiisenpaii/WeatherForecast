@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+<!--browser sync (paste in terminal) --: browser-sync --start --server --directory --files "*"  -->
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="Weatherstyle.css">
+
+	<title>Weather Broadcast</title>
+	
+<!--font family  "font-family: 'Bebas Neue', cursive; "-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+<!--font family  "font-family: 'Roboto', sans-serif; "-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="app-wrap">
+    <header>
+      <input type="text" autocomplete="off" class="search-box" placeholder="Enter city name" />
+    </header>
+    <main>
+
+      <section class="location">
+        <div class="city"></div>
+        <div class="date"></div>
+      </section>
+
+      <div class="current">
+        <div class="temp"><span></span></div>
+        <div class="weather"></div>
+        <div class="hi-low"></div>
+      </div>
+
+      <div class="extra">
+        <span class="coordinate"> </span>
+        <span class="wind"></span>
+      </div>
+
+    </main>
+  </div>
+   <footer class="">
+        <hr>
+        <div> Created by Hrushikesh Patra</div>   
+        <div>
+        <a href = "mailto: hrushikesh.patra24@gmail.com"> Contact Me </a> 
+        </div>  
+    </footer>
+  <script src="Weatherscript.js"></script>
+  </body>
+
+</html> 
