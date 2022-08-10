@@ -37,8 +37,8 @@ function displayResults (weather) {
   let weather_el = document.querySelector('.current .weather');
   weather_el.innerText = weather.weather[0].main;
 
-  let hilow = document.querySelector('.hi-low');
-  hilow.innerText = `${Math.round(weather.main.temp_min)}°c / ${Math.round(weather.main.temp_max)}°c`;
+  let hilow = document.querySelector('.current .hi-low');
+  hilow.innerText = `${Math.round(weather.main.temp_min)}°c/ ${Math.round(weather.main.temp_max)}°c`;
 
   let lonlat = document.querySelector('.coordinate');
   lonlat.innerText = `longitude: ${weather.coord.lon}, lattitude: ${weather.coord.lat}`;
@@ -62,6 +62,20 @@ function dateBuilder (d) {
 document.addEventListener("DOMContentLoaded",
   function (event){
 
+  var span = document.getElementById('time');
+
+  function time() {
+  var d = new Date();
+  var s = d.getSeconds();
+  var m = d.getMinutes();
+  var h = d.getHours();
+  span.textContent = 
+    ("0" + h).substr(-2) + ":" + ("0" + m).substr(-2) + ":" + ("0" + s).substr(-2) + " IST";
+}
+
+setInterval(time, 1000);
+
   getResults("Delhi");
 
 });
+

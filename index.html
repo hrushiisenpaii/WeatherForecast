@@ -9,8 +9,9 @@
 	<meta name="viewpoint" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="Weatherstyle.css">
 
-	<title>Weather Broadcast</title>
-	
+	<title>Weather Forecast</title>
+	<link rel="icon" type="image" href="icon.png">
+
 <!--font family  "font-family: 'Bebas Neue', cursive; "-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,14 +30,14 @@
       <input type="text" autocomplete="off" class="search-box" placeholder="Enter city name" />
     </header>
     <main>
-
+        <div id="time"></div>
       <section class="location">
         <div class="city"></div>
         <div class="date"></div>
       </section>
 
       <div class="current">
-        <div class="temp"><span></span></div>
+        <div class="temp"></div>
         <div class="weather"></div>
         <div class="hi-low"></div>
       </div>
@@ -47,13 +48,16 @@
       </div>
 
     </main>
+
   </div>
-   <footer class="">
+
+   <footer >
         <hr>
-        <div> Created by Hrushikesh Patra</div>   
-        <div>
-        <a href = "mailto: hrushikesh.patra24@gmail.com"> Contact Me </a> 
-        </div>  
+        <div> Created by &#169; <a href = "https://www.linkedin.com/in/hrushikeshpatra24/" target="_blank">Hrushikesh Patra </a> </div>   
+        <sapn id="links">
+        <a href = "mailto: hrushikesh.patra24@gmail.com" target="_blank"> Contact Me! </a> 
+        <a href = "https://github.com/hrushiisenpaii/WeatherForecast" target="_blank"> Source code </a> 
+        </span>  
     </footer>
   <script src="Weatherscript.js"></script>
   </body>
