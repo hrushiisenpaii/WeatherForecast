@@ -12,6 +12,10 @@ function setQuery(evt) {
   }
 }
 
+document.querySelector("header button").addEventListener("click", function() {
+  getResults(searchbox.value);
+})
+
 function getResults (query) {
   fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
     .then(weather => {
@@ -21,7 +25,6 @@ function getResults (query) {
 }
 
 function displayResults (weather) {
-  console.log(weather);
 
   let city = document.querySelector('.location .city');
   city.innerText = `${weather.name}, ${weather.sys.country}`;
@@ -36,17 +39,28 @@ function displayResults (weather) {
   let weather_el = document.querySelector('.current .weather');
   weather_el.innerText = weather.weather[0].main;
 
+  const { icon } = weather.weather[0];
+  document.querySelector(".icon").src =
+  "https://openweathermap.org/img/wn/" + icon + ".png";
+
   let hilow = document.querySelector('.current .hi-low');
   hilow.innerHTML = `${Math.round(weather.main.temp_min)}<span>°c</span> / ${Math.round(weather.main.temp_max)}<span>°c</span>`;
 
-  let lonlat = document.querySelector('.coordinate');
-  lonlat.innerText = `Longitude: ${weather.coord.lon}, Latitude: ${weather.coord.lat}`;
+  let lonlat = document.querySelector('.coordinatelong');
+  lonlat.innerText = `Longitude: ${weather.coord.lon}`;
+
+  let latlat = document.querySelector('.coordinatelatt');
+  latlat.innerText = `Latitude: ${weather.coord.lat}`;
 
   let spedeg = document.querySelector('.wind');
   spedeg.innerText = `Wind-Speed: ${weather.wind.speed} mps | Deg: ${weather.wind.deg} `;
 
-   let humid = document.querySelector('.extra .humidity');
+  let humid = document.querySelector('.extra .humidity');
   humid.innerText = `Humidity: ${weather.main.humidity}%`;
+
+  document.body.style.backgroundImage = "url('https://source.unsplash.com/1080x720/? " + weather.name + "')" ;
+
+  document.querySelector(".weather").classList.remove("loading");
 }
 
 function dateBuilder (d) {
@@ -64,19 +78,29 @@ function dateBuilder (d) {
 document.addEventListener("DOMContentLoaded",
   function (event){
 
+  getResults("Delhi");
+
   var span = document.getElementById('time');
+
 
   function time() {
   var d = new Date();
-  var s = d.getSeconds();
   var m = d.getMinutes();
   var h = d.getHours();
+
+  if(h<=12 )
+    {
+      var tz = " AM"; 
+    }
+    else{
+      h -= 12;  
+      var tz = " PM"
+    }
+
   span.textContent = 
-    ("0" + h).substr(-2) + ":" + ("0" + m).substr(-2) + ":" + ("0" + s).substr(-2) + " IST";
+    ("0" + h).substr(-2) + " : " + (" 0" + m).substr(-2) + tz;  
 }
 
 setInterval(time, 1000);
-
-  getResults("Delhi");
 
 });

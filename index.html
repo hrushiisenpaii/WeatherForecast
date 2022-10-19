@@ -9,7 +9,7 @@
   <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="Weatherstyle.css">
 
-  <title>Weather Forecast</title>
+  <title>Weather Report</title>
   <link rel="icon" type="image" href="icon.png">
 
 <!--font family  "font-family: 'Bebas Neue', cursive; "-->
@@ -26,11 +26,25 @@
 
 <body>
   <div class="app-wrap">
+
     <header>
-      <input type="text" autocomplete="off" class="search-box" placeholder="Enter city name" />
+      <input type="text" autocomplete="off" class="search-box" placeholder="Enter city name" >
+      <button>
+        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" 
+        height="1.5em" 
+        width="1.3em" 
+        xmlns="http://www.w3.org/2000/svg"><path d="M10,18c1.846,0,3.543-0.635,4.897-1.688l4.396,4.396l1.414-1.414l-4.396-4.396C17.365,13.543,18,11.846,18,10 c0-4.411-3.589-8-8-8s-8,3.589-8,8S5.589,18,10,18z M10,4c3.309,0,6,2.691,6,6s-2.691,6-6,6s-6-2.691-6-6S6.691,4,10,4z">
+
+      </path></svg></button>
+    </input>
+     
     </header>
-    <main>
-        <div id="time"></div>
+   
+
+    <main class="weatherbox loading">
+
+      <div id="time"></div>
+       
       <section class="location">
         <div class="city"></div>
         <div class="date"></div>
@@ -38,12 +52,18 @@
 
       <div class="current">
         <div class="temp"></div>
-        <div class="weather"></div>
+        <div class="flex">
+          <div class="weather"></div>
+          <img src="" alt="" class="icon" />
+        </div>
+       
+       
         <div class="hi-low"></div>
       </div>
 
       <div class="extra">
-        <span class="coordinate"> </span>
+        <span class="coordinatelong"> </span>
+        <span class="coordinatelatt"> </span>
         <span class="wind"></span>
         <span class="humidity"></span>
       </div>
