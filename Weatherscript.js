@@ -58,7 +58,7 @@ function displayResults (weather) {
   let humid = document.querySelector('.extra .humidity');
   humid.innerText = `Humidity: ${weather.main.humidity}%`;
 
-  document.body.style.backgroundImage = "url('https://source.unsplash.com/1080x720/? " + weather.name + "')" ;
+  document.body.style.backgroundImage = "url('https://picsum.photos/1280/1024/?" + weather.name + "')" ;
 
   document.querySelector(".weather").classList.remove("loading");
 }
